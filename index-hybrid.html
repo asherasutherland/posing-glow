@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+
+  <!--
+    ─────────────────────────────────────────────────────────────────────────────
+    POSING GLOW LIBRARY
+    ─────────────────────────────────────────────────────────────────────────────
+    To update content:
+      • Releases (album list)  → edit `data.js`
+      • Nav / footer links     → edit the href="#" attributes below
+      • ABOUT copy             → edit the <p> inside <section class="end-note">
+      • Page title             → edit <title> below
+      • Visual styles          → edit `style-hybrid.css`
+    ─────────────────────────────────────────────────────────────────────────────
+  -->
+
+  <title>Posing Glow Library</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://use.typekit.net/tpw6lbl.css" />
+  <link rel="stylesheet" href="style-hybrid.css?v=2" />
+</head>
+
+<body>
+
+  <!-- ── Sticky header ─────────────────────────────────────────────────────── -->
+  <header>
+    <div class="header-left">
+      <a class="contact-btn" href="#" target="_blank" rel="noopener noreferrer">Stream</a>
+    </div>
+
+    <span class="site-name">POSING GLOW LIBRARY</span>
+
+    <div class="header-right">
+      <a class="contact-btn" href="#">Contact</a>
+      <button
+        class="menu-toggle"
+        aria-label="Menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >MENU</button>
+    </div>
+  </header>
+
+  <!-- ── Mobile drop-down menu (visible only ≤ 600px wide) ─────────────────── -->
+  <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <a class="mobile-menu-link" href="#" target="_blank" rel="noopener noreferrer">STREAM</a>
+    <a class="mobile-menu-link" href="#">CONTACT</a>
+    <a class="mobile-menu-link" href="#" target="_blank" rel="noopener noreferrer">BANDCAMP</a>
+    <a class="mobile-menu-link" href="#">NINA PROTOCOL</a>
+  </nav>
+
+  <!-- ── Page heading + album grid (cards rendered from data.js by main.js) ── -->
+  <div class="grid-heading">FREE DOWNLOADS ↓</div>
+  <main id="grid"></main>
+
+  <!-- ── ABOUT section ─────────────────────────────────────────────────────── -->
+  <section class="end-note">
+    <h2 class="about-heading">ABOUT</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+  </section>
+
+  <!-- ── Bottom footer (hidden on mobile — links move into the menu) ───────── -->
+  <footer class="footer-bottom">
+    <div class="footer-nav">
+      <div class="header-left">
+        <a class="contact-btn" href="#" target="_blank" rel="noopener noreferrer">BANDCAMP</a>
+      </div>
+      <div class="header-right">
+        <a class="contact-btn" href="#">NINA PROTOCOL</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js?v=4"></script>
+  <script src="main.js?v=5"></script>
+</body>
+</html>
