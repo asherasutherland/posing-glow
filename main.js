@@ -1,5 +1,5 @@
 /* =============================================================================
-   POSING GLOW LIBRARY — Front-end script
+   POSING GLOW — Front-end script
 
    Responsibilities:
      1. renderGrid()  — build the album cards from `releases` (data.js)

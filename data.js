@@ -1,5 +1,5 @@
 /* =============================================================================
-   POSING GLOW LIBRARY — Release catalogue
+   POSING GLOW — Release catalogue
 
    Add a new release by copying any block below and editing the fields.
    Order matters: the first item in this array is shown first on the page.

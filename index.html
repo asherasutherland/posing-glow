@@ -7,7 +7,7 @@
 
   <!--
     ─────────────────────────────────────────────────────────────────────────────
-    POSING GLOW LIBRARY
+    POSING GLOW
     ─────────────────────────────────────────────────────────────────────────────
     To update content:
       • Releases (album list)  → edit `data.js`
@@ -18,7 +18,7 @@
     ─────────────────────────────────────────────────────────────────────────────
   -->
 
-  <title>Posing Glow Library</title>
+  <title>Posing Glow</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,13 +31,13 @@
   <!-- ── Sticky header ─────────────────────────────────────────────────────── -->
   <header>
     <div class="header-left">
-      <a class="contact-btn" href="#" target="_blank" rel="noopener noreferrer">Stream</a>
+      <a class="contact-btn" href="#about">About</a>
     </div>
 
-    <span class="site-name">POSING GLOW LIBRARY</span>
+    <span class="site-name">POSING GLOW</span>
 
     <div class="header-right">
-      <a class="contact-btn" href="#">Contact</a>
+      <a class="contact-btn" href="mailto:hello@posingglow.com">Contact</a>
       <button
         class="menu-toggle"
         aria-label="Menu"
@@ -49,18 +49,21 @@
 
   <!-- ── Mobile drop-down menu (visible only ≤ 600px wide) ─────────────────── -->
   <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
-    <a class="mobile-menu-link" href="#" target="_blank" rel="noopener noreferrer">STREAM</a>
-    <a class="mobile-menu-link" href="#">CONTACT</a>
-    <a class="mobile-menu-link" href="#" target="_blank" rel="noopener noreferrer">BANDCAMP</a>
-    <a class="mobile-menu-link" href="#">NINA PROTOCOL</a>
+    <a class="mobile-menu-link" href="#about">ABOUT</a>
+    <a class="mobile-menu-link" href="mailto:hello@posingglow.com">CONTACT</a>
+    <a class="mobile-menu-link" href="https://posingglow.bandcamp.com" target="_blank" rel="noopener noreferrer">BANDCAMP</a>
+    <a class="mobile-menu-link" href="https://www.ninaprotocol.com/profiles/posing-glow?tab=releases&page=1&sort=desc" target="_blank" rel="noopener noreferrer">NINA PROTOCOL</a>
   </nav>
+
+  <!-- ── Stacked logo (visible only on mobile, centered in landing frame) ──── -->
+  <div class="mobile-hero" aria-hidden="true">POSING<br>GLOW</div>
 
   <!-- ── Page heading + album grid (cards rendered from data.js by main.js) ── -->
   <div class="grid-heading">FREE DOWNLOADS ↓</div>
   <main id="grid"></main>
 
   <!-- ── ABOUT section ─────────────────────────────────────────────────────── -->
-  <section class="end-note">
+  <section class="end-note" id="about">
     <h2 class="about-heading">ABOUT</h2>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
@@ -76,10 +79,10 @@
   <footer class="footer-bottom">
     <div class="footer-nav">
       <div class="header-left">
-        <a class="contact-btn" href="#" target="_blank" rel="noopener noreferrer">BANDCAMP</a>
+        <a class="contact-btn" href="https://posingglow.bandcamp.com" target="_blank" rel="noopener noreferrer">BANDCAMP</a>
       </div>
       <div class="header-right">
-        <a class="contact-btn" href="#">NINA PROTOCOL</a>
+        <a class="contact-btn" href="https://www.ninaprotocol.com/profiles/posing-glow?tab=releases&page=1&sort=desc" target="_blank" rel="noopener noreferrer">NINA PROTOCOL</a>
       </div>
     </div>
   </footer>
