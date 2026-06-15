@@ -25,6 +25,49 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "DotumChe";
+  src: url("DotumChe-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Chunk";
+  src: url("ChunkFive-Regular.woff2") format("woff2"),
+       url("ChunkFive-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "League Gothic";
+  src: url("LeagueGothic-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "League Gothic";
+  src: url("LeagueGothic-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Linden Hill";
+  src: url("LindenHill-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Linden Hill";
+  src: url("LindenHill-Italic-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
 
 /* 2. Reset ──────────────────────────────────────────────────────────────────── */
 
@@ -36,6 +79,8 @@
   padding: 0;
 }
 
+[hidden] { display: none !important; }
+
 
 /* 3. Custom properties ──────────────────────────────────────────────────────── */
 
@@ -46,7 +91,7 @@
   --gutter: 16px;                     /* horizontal page gutter */
 
   /* Page gradient (top → middle → bottom) */
-  --page-gradient: linear-gradient(to bottom, #000000, #737270, #000000);
+  --page-gradient: linear-gradient(to bottom, #000000, #3a3938, #000000);
 
   /* Default cover size for desktop. Overridden per-card by main.js. */
   --cover-size: min(60vw, calc(90vh - 250px));
@@ -63,7 +108,7 @@ html {
 
 body {
   position: relative;
-  background: var(--page-gradient);
+  background: #000000;
   color: var(--ink);
   font-family: "BL", serif;
   letter-spacing: 0;
@@ -103,23 +148,31 @@ header.header--hidden {
 
 .site-name {
   justify-self: center;
-  font-family: "BL", serif;
-  font-size: 31px;
+  font-family: "League Gothic", sans-serif;
+  font-weight: 400;
+  font-size: 39.6px;
   line-height: 1.0;
-  letter-spacing: 0;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  text-decoration: none;
   color: var(--ink);
+}
+
+/* Alternate state: cycles to "Free Music Library" in Clarendon (see main.js). */
+.site-name--alt {
+  font-family: "clarendon-text-pro", serif;
+  font-size: 42.03px;
 }
 
 .contact-btn {
   display: inline-flex;
   align-items: center;
-  font-family: "clarendon-text-pro", serif;
+  font-family: "BL", serif;
   font-weight: 400;
-  font-size: 26px;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+  font-size: 31px;
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
   text-decoration: none;
   color: var(--ink);
   background-color: transparent;
@@ -127,8 +180,63 @@ header.header--hidden {
 
 .contact-btn:hover {
   text-decoration: underline;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 4px;
   text-underline-offset: 4px;
+}
+
+/* Header buttons are Clarendon (the POSING GLOW wordmark stays BL).
+   Footer buttons keep BL via the base .contact-btn rule. */
+header .contact-btn {
+  font-family: "clarendon-text-pro", serif;
+  font-weight: 400;
+  font-size: 42.03px;
+  text-transform: capitalize;
+}
+
+/* FEED / GRID view toggle (where Contact used to be) */
+.view-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.view-btn,
+.view-sep {
+  font-family: "clarendon-text-pro", serif;
+  font-weight: 400;
+  font-size: 42.03px;
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: var(--ink);
+}
+
+.view-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.view-btn.is-active {
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 4px;
+}
+
+
+/* Intro paragraph — centred, sitting directly beneath the POSING GLOW wordmark.
+   The -8px top margin cancels the header's bottom padding so the text touches
+   the wordmark. */
+.intro-copy {
+  margin: -8px auto 0;
+  max-width: 600px;
+  font-family: "League Gothic", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 31.2px;          /* match the serif line box (26px × 1.2) */
+  color: #ffffff;
+  text-align: center;
 }
 
 
@@ -140,11 +248,12 @@ header.header--hidden {
   border: none;
   cursor: pointer;
   padding: 0;
-  font-family: "BL", serif;
-  font-size: 26px;
+  font-family: "clarendon-text-pro", serif;
+  font-weight: 400;
+  font-size: 42.03px;
   line-height: 1.0;
-  letter-spacing: 0;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
   color: var(--ink);
 }
 
@@ -168,9 +277,9 @@ header.header--hidden {
   max-width: calc(100vw - 2 * var(--gutter));
   font-family: "clarendon-text-pro", serif;
   font-weight: 400;
-  font-size: 26px;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
   text-align: center;
   color: var(--ink);
 }
@@ -183,15 +292,14 @@ header.header--hidden {
    the element's height (padding-top + text line-height) is preserved.
    `82px` ≈ header (~47px) + text (~31px) + 4px tweak. */
 .grid-heading {
-  visibility: hidden;
+  display: none;                      /* spacer no longer needed on desktop */
   text-align: center;
   font-family: "clarendon-text-pro", serif;
   font-weight: 400;
-  font-size: 26px;
-  line-height: 1.2;
-  letter-spacing: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
   color: var(--ink);
-  padding: calc(100vh - 82px) 0 0;
 }
 
 
@@ -200,14 +308,14 @@ header.header--hidden {
 #grid {
   position: relative;
   z-index: 1;
-  margin: 0 calc(-1 * var(--gutter));
-  padding: 16px 0 0;
+  margin: 116px calc(-1 * var(--gutter)) 0;   /* first card sits 116px below header, matching grid view */
+  padding: 0;
 }
 
 #grid.view-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10vh 0;                        /* vertical space between cards */
+  gap: 15vh 0;                        /* vertical space between cards */
 }
 
 .card {
@@ -226,7 +334,6 @@ header.header--hidden {
   width: var(--cover-size);
   aspect-ratio: 1 / 1;
   margin: 0 auto;
-  overflow: hidden;
   flex-shrink: 0;
   cursor: pointer;
   text-decoration: none;
@@ -238,6 +345,44 @@ header.header--hidden {
   height: 100%;
   object-fit: cover;
 }
+
+/* Datestamp line above the cover, aligned to the cover's left edge
+   (same width as the cover, centred — so its left edge meets the cover's). */
+.card-datestamp {
+  width: var(--cover-size);
+  margin: 0 auto 13px;
+  text-align: left;
+  font-family: "clarendon-text-pro", serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+
+/* Meta row above the artwork: datestamp (left) + release type (right), aligned
+   to the cover's left/right edges. Cover and card share a centre line, so a row
+   sized to the cover width and centred lines its edges up with the cover's. */
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: var(--cover-size);
+  max-width: 100%;
+  margin: 0 auto 8px;
+}
+
+.card-date,
+.card-type {
+  font-family: "clarendon-text-pro", serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 31.2px;          /* match the serif line box (26px × 1.2) */
+  color: var(--ink);
+}
+
+.card-date { text-align: left; }
+.card-type { text-align: right; }
 
 .card-cover-placeholder {
   width: 100%;
@@ -261,44 +406,118 @@ header.header--hidden {
 
 /* Card body sits below the cover and inherits the same horizontal extents */
 .card-body {
-  width: calc(60vw + 200px);
-  margin: 16px 0 0 calc(20vw - 100px);
+  width: calc(48.6vw + 162px);
+  margin: 16px 0 0 calc(25.7vw - 81px);
   color: var(--ink);
 }
 
-/* "Album Title by Artist Name" — centered */
+/* "Album Title by Artist Name" — left edge aligned to the artwork's left edge,
+   right edge free to run out to the caption's right edge (full body width).
+   The cover and card-body share the same centre line, so the cover's left edge
+   sits `30vw - cover/2 + 100px` in from the body's left edge. */
 .card-byline {
   font-family: "clarendon-text-pro", serif;
   font-weight: 400;
-  font-size: 26px;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
   text-align: center;
+  text-transform: uppercase;
   margin: 0;
 }
 
-.card-title  { font-style: normal; font-weight: 400; color: var(--ink); }
-.card-artist {                      font-weight: 400; color: var(--ink); }
+.card-title  { font-style: normal; color: var(--ink); }
+.card-artist {                      color: var(--ink); }
 
-/* Description paragraph (containing the Download link) */
-.card-caption {
+/* Caption — first paragraph (the story) in Clarendon */
+.caption-story {
   font-family: "clarendon-text-pro", serif;
   font-weight: 400;
-  font-size: 26px;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
   margin: 0;
+}
+
+/* Gradient highlight swipes that bracket the artist's quote — solid at the
+   outer edge, fading toward the body of the quote (like a highlighter). */
+.quote-start,
+.quote-end {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.05em 0;
+  background-repeat: no-repeat;
+  background-size: min(7em, 100%) 100%;   /* swipe length, capped at the phrase width so short phrases fade fully */
+  white-space: nowrap;
+}
+
+.quote-start {
+  background-image: linear-gradient(to right, var(--bk-on, rgba(130, 117, 0, 0.9)), var(--bk-off, rgba(130, 117, 0, 0)));
+  background-position: left center;
+}
+
+.quote-end {
+  background-image: linear-gradient(to right, var(--bk-off, rgba(130, 117, 0, 0)), var(--bk-on, rgba(130, 117, 0, 0.9)));
+  background-position: right center;
+}
+
+/* Gradient swipes bracketing the gear list — 15% gray (more subtle) */
+.gear-start,
+.gear-end {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.05em 0;
+  background-repeat: no-repeat;
+  background-size: min(7em, 100%) 100%;
+  white-space: nowrap;
+}
+
+.gear-start {
+  background-image: linear-gradient(to right, var(--bk-on, rgba(150, 0, 63, 0.9)), var(--bk-off, rgba(150, 0, 63, 0)));
+  background-position: left center;
+}
+
+.gear-end {
+  background-image: linear-gradient(to right, var(--bk-off, rgba(150, 0, 63, 0)), var(--bk-on, rgba(150, 0, 63, 0.9)));
+  background-position: right center;
+}
+
+
+/* Caption — lead placeholder + gear / credits, in Clarendon like the rest of
+   the caption; the quote is set apart by the gradient swipes, not the font. */
+.caption-gear {
+  font-family: "clarendon-text-pro", serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+}
+
+/* Bracket for the download link — double-fade, never wraps */
+.date-bracket {
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  padding: 0.05em 0;
+  background-image:
+    linear-gradient(to right, var(--bk-on, rgba(0, 128, 122, 0.9)), var(--bk-off, rgba(0, 128, 122, 0))),
+    linear-gradient(to left,  var(--bk-on, rgba(0, 128, 122, 0.9)), var(--bk-off, rgba(0, 128, 122, 0)));
+  background-size: 7em 100%, 7em 100%;
+  background-position: left center, right center;
+  background-repeat: no-repeat;
+  white-space: nowrap;
 }
 
 .card-download {
   display: inline;
   font-family: "clarendon-text-pro", serif;
   font-weight: 400;
-  font-size: 26px;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
   text-decoration: underline;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 1.5px;
   text-underline-offset: 4px;
   color: var(--ink);
   cursor: pointer;
@@ -323,23 +542,192 @@ header.header--hidden {
 .about-heading {
   font-family: "clarendon-text-pro", serif;
   font-weight: 400;
-  font-size: 26px;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
   text-align: center;
+  text-transform: uppercase;
   color: var(--ink);
 }
 
 .end-note p {
-  width: calc(60vw + 200px);
-  margin: 0 0 0 calc(20vw - 100px);
+  width: calc(48.6vw + 162px);
+  margin: 0 auto;
   font-family: "clarendon-text-pro", serif;
   font-weight: 400;
-  font-size: 26px;
-  line-height: 1.2;
-  letter-spacing: 0.03em;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
   text-align: left;
   color: var(--ink);
+}
+
+/* "Submissions always open" → mailto link (same as the Contact button) */
+.about-submit {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+
+/* 9b. GRID view (3-column cover grid) + album modal ─────────────────────────── */
+
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(3, calc((100vw - 2 * var(--gutter)) * 1.26225 / 6));
+  justify-content: center;
+  gap: 8px;
+  margin: 116px calc(-1 * var(--gutter)) 0;
+  padding: 0 var(--gutter);
+}
+
+/* Cover tile — image only; name/artist revealed on hover */
+.grid-tile {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  border: none;
+  background: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.grid-tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grid-tile-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px;
+  background: #ffffff;
+  color: #000000;
+  font-family: "clarendon-text-pro", serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.grid-tile-label em { font-style: normal; }
+
+.grid-tile:hover .grid-tile-label,
+.grid-tile:focus-visible .grid-tile-label {
+  opacity: 1;
+}
+
+/* Album detail modal */
+.album-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gutter);
+}
+
+.album-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;   /* pure white */
+}
+
+.album-modal-dialog {
+  /* Mirror the feed card: cover centred, body 200px wider (100px each side),
+     byline indented to the cover's left edge. */
+  --modal-cover: calc(min(60vh, calc(100vw - 2 * var(--gutter) - 200px)) * 0.625);
+  position: relative;
+  z-index: 1;
+  width: calc(48.6vw + 162px);       /* same width as the feed card body */
+  max-width: calc(100vw - 2 * var(--gutter));
+  max-height: 90vh;
+  overflow: auto;
+  text-align: left;
+  padding-top: 36px;                 /* room for the close X */
+  padding-bottom: 92px;              /* over-balance the top reserve so text optically centres slightly above the middle */
+  color: #000000;                    /* black text on white backdrop */
+}
+
+/* Force all modal text to black, overriding the white feed-card colours */
+.album-modal-dialog .card-date,
+.album-modal-dialog .card-type,
+.album-modal-dialog .card-title,
+.album-modal-dialog .card-artist,
+.album-modal-dialog .card-download,
+.album-close {
+  color: #000000;
+}
+
+/* Meta row above the cover — date left, type right (matches the feed card) */
+.album-modal-meta {
+  display: flex;
+  justify-content: space-between;
+  width: var(--modal-cover);
+  margin: 0 auto 8px;
+}
+
+.album-modal-cover {
+  display: block;
+  width: var(--modal-cover);
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.album-modal-cover img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.album-modal-byline {
+  font-family: "clarendon-text-pro", serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 16px 0 0;
+}
+
+.album-modal-caption {
+  font-family: "clarendon-text-pro", serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.album-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: "clarendon-text-pro", serif;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1;
+  color: #000000;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 
@@ -367,6 +755,14 @@ footer {
 
 .footer-nav .header-right { grid-column: 3; }
 
+/* Footer buttons match header typography */
+footer .contact-btn {
+  font-family: "clarendon-text-pro", serif;
+  font-weight: 400;
+  font-size: 42.03px;
+  text-transform: capitalize;
+}
+
 
 /* 11. Responsive (≤ 600px) ──────────────────────────────────────────────────── */
 
@@ -374,7 +770,8 @@ footer {
 
   /* Hide desktop-only elements ─────────────────────────────────────────────── */
   .contact-btn,
-  .site-name {
+  .site-name,
+  .header-right .view-toggle {
     display: none;
   }
 
@@ -395,9 +792,9 @@ footer {
     line-height: 1.2;
   }
 
-  /* Stacked logo: centered in the first viewport */
+  /* Stacked logo: hidden on mobile */
   .mobile-hero {
-    display: block;
+    display: none;
     position: absolute;
     top: 50vh;
     left: 50%;
@@ -416,9 +813,21 @@ footer {
     top: 150vh;
   }
 
-  /* Push the album grid past the landing viewport */
+  /* Mobile landing: no stacked logo, so the grid starts just below the header
+     instead of being pushed past an empty first viewport. */
+  .intro-copy {
+    position: absolute;
+    left: var(--gutter);
+    top: calc(47px + 10vh);
+    margin: 0;
+  }
+
   .grid-heading {
-    padding-top: calc(100vh - 82px);
+    display: none;
+  }
+
+  #grid {
+    margin: 24px calc(-1 * var(--gutter)) 0;
   }
 
   /* Mobile menu panel ─────────────────────────────────────────────────────── */
@@ -442,18 +851,28 @@ footer {
   .mobile-menu-link {
     font-family: "clarendon-text-pro", serif;
     font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: 0.03em;
+    line-height: 1.4;
+    letter-spacing: 0.06em;
     text-align: center;
     text-transform: uppercase;
     text-decoration: none;
     color: var(--ink);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
   }
 
-  /* Cards: full-width covers, content fits viewport with 16px gutters ─────── */
+  /* GRID view stays 3 columns on mobile too */
+  .grid-view {
+    margin-top: 5vh;
+  }
+
+  /* Cards: full-width covers sized to their content, with a uniform gap between
+     them (no 90vh min-height — that produced uneven trailing space on mobile). */
   .card {
     height: auto;
-    min-height: 90vh;
+    min-height: 0;
   }
 
   .card-cover {
@@ -463,6 +882,17 @@ footer {
   .card-body {
     width: auto;
     margin: 16px var(--gutter) 0;
+  }
+
+  /* Cover is full-width on mobile, so the byline spans the body width too */
+  .card-byline {
+    width: auto;
+    margin: 0;
+  }
+
+  .card-meta {
+    width: auto;
+    margin: 0 0 8px;
   }
 
   .end-note p {
@@ -475,7 +905,7 @@ footer {
   }
 
   #grid.view-grid {
-    gap: 10vh 0;
+    gap: 15vh 0;
   }
 
   /* Unify all Clarendon text at 22px on mobile ────────────────────────────── */
@@ -486,6 +916,6 @@ footer {
   .card-caption,
   .card-download,
   .mobile-menu-link {
-    font-size: 22px;
+    font-size: 15px;
   }
 }

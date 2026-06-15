@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://use.typekit.net/tpw6lbl.css" />
-  <link rel="stylesheet" href="style-hybrid.css?v=2" />
+  <link rel="stylesheet" href="style-hybrid.css?v=76" />
 </head>
 
 <body>
@@ -34,25 +34,29 @@
       <a class="contact-btn" href="#about">About</a>
     </div>
 
-    <span class="site-name">POSING GLOW</span>
+    <a class="site-name" href="https://posingglow.com">Posing Glow</a>
 
     <div class="header-right">
-      <a class="contact-btn" href="mailto:hello@posingglow.com">Contact</a>
+      <div class="view-toggle">
+        <button class="view-btn is-active" type="button" data-view="feed">Feed</button>
+        <span class="view-sep">/</span>
+        <button class="view-btn" type="button" data-view="grid">Grid</button>
+      </div>
       <button
         class="menu-toggle"
         aria-label="Menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
-      >MENU</button>
+      >Menu</button>
     </div>
   </header>
+
 
   <!-- ── Mobile drop-down menu (visible only ≤ 600px wide) ─────────────────── -->
   <nav class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <a class="mobile-menu-link" href="#about">ABOUT</a>
     <a class="mobile-menu-link" href="mailto:hello@posingglow.com">CONTACT</a>
     <a class="mobile-menu-link" href="https://posingglow.bandcamp.com" target="_blank" rel="noopener noreferrer">BANDCAMP</a>
-    <a class="mobile-menu-link" href="https://www.ninaprotocol.com/profiles/posing-glow?tab=releases&page=1&sort=desc" target="_blank" rel="noopener noreferrer">NINA PROTOCOL</a>
   </nav>
 
   <!-- ── Stacked logo (visible only on mobile, centered in landing frame) ──── -->
@@ -60,18 +64,22 @@
 
   <!-- ── Page heading + album grid (cards rendered from data.js by main.js) ── -->
   <div class="grid-heading">FREE DOWNLOADS ↓</div>
+
+  <!-- FEED view (default): vertical card feed -->
   <main id="grid"></main>
+
+  <!-- GRID view: 3-column grid of album covers -->
+  <section id="grid-view" class="grid-view" hidden></section>
 
   <!-- ── ABOUT section ─────────────────────────────────────────────────────── -->
   <section class="end-note" id="about">
-    <h2 class="about-heading">ABOUT</h2>
+    <h2 class="about-heading">About</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Posing Glow is a quasi-label and music library. First and foremost, it's a
+      low-stakes place for people to release what they've made, without any of the usual
+      label games. It works a bit like a community book exchange: everything's free to
+      download, and if you take something, you're encouraged to leave something of your own.
+      <span class="quote-start">It's about treating</span> music as <span class="quote-end">something worth sharing.</span> <a class="about-submit" href="mailto:hello@posingglow.com">Submissions always open.</a>
     </p>
   </section>
 
@@ -79,15 +87,21 @@
   <footer class="footer-bottom">
     <div class="footer-nav">
       <div class="header-left">
-        <a class="contact-btn" href="https://posingglow.bandcamp.com" target="_blank" rel="noopener noreferrer">BANDCAMP</a>
+        <a class="contact-btn" href="https://posingglow.bandcamp.com" target="_blank" rel="noopener noreferrer">Bandcamp</a>
       </div>
       <div class="header-right">
-        <a class="contact-btn" href="https://www.ninaprotocol.com/profiles/posing-glow?tab=releases&page=1&sort=desc" target="_blank" rel="noopener noreferrer">NINA PROTOCOL</a>
+        <a class="contact-btn" href="mailto:hello@posingglow.com">Contact</a>
       </div>
     </div>
   </footer>
 
-  <script src="data.js?v=4"></script>
-  <script src="main.js?v=5"></script>
+  <!-- Album detail modal (filled + shown by main.js in GRID view) -->
+  <div class="album-modal" id="album-modal" hidden>
+    <div class="album-modal-backdrop" data-close></div>
+    <div class="album-modal-dialog" role="dialog" aria-modal="true"></div>
+  </div>
+
+  <script src="data.js?v=15"></script>
+  <script src="main.js?v=56"></script>
 </body>
 </html>
